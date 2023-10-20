@@ -7,6 +7,10 @@ const useFetchPokemons = (url: string) => {
 
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
+    const [nextUrl, setNextUrl] = useState(url);
+
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const getData = async (url: string) => {
         const response = await axios.get(url);
@@ -18,14 +22,41 @@ const useFetchPokemons = (url: string) => {
         };
       }
 
-    useEffect(() => {
-        const getPokemons = async () => {
-            const urls = await axios.get(url).then((response) => response.data.results.map((pokemon: {name: string, url: string}) => pokemon.url));
-            const pokemons = urls.map(getData);
-            Promise.all(pokemons).then((pokemons) => setPokemons(pokemons));
+      
+      const getPokemons = async () => {
+        setIsLoading(true)
+
+        try{
+        const response = await axios.get(nextUrl)
+        const urls = response.data.results.map((result: { url: string; }) => result.url);
+        const next = response.data.next; 
+        const pokemons = urls.map(getData);
+        Promise.all(pokemons).then((pokemons) => setPokemons(prevItems => [...prevItems, ...pokemons]));
+        setNextUrl(next);
+        } catch (error) {
+          console.log(error)
+        } finally {
+          setIsLoading(false)
         }
+      }
+      
+      const handleScroll = () => {
+        if (
+          window.innerHeight + window.scrollY >= document.body.offsetHeight - 100
+        ) {
+          getPokemons();
+        }
+      };
+      
+      useEffect(() => {
         getPokemons();
-    })
+      },[])
+
+      useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    },[isLoading])
+
 
     return [pokemons]
 }

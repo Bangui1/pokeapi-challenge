@@ -6,15 +6,16 @@ import useFetchPokemons from './useFetchPokemons';
 
 
 
-const baseUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+const baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
 
 
 function PokemonHome() {
   const [pokemons] = useFetchPokemons(baseUrl); 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     if (pokemons.length > 0) setLoading(false)
   }, [pokemons])
 
