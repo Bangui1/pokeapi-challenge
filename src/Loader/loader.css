@@ -1,0 +1,27 @@
+
+.loader {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.pokeball {
+    width: 10%;
+    animation: spin 2s linear infinite;
+}
+
+body {
+  background-image: url('../Resources/pokemon-background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
