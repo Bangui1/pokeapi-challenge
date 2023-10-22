@@ -2,6 +2,8 @@ import { Pokemon } from "PokemonHome/PokemonCard";
 import logo from '../Resources/Pokemon-Logo.png';
 import {useNavigate, useParams} from 'react-router-dom'
 import useFetchProfile from "./useFetchProfile";
+import { useState, useEffect } from "react";
+import Loader from "Loader/Loader";
 
 export interface PokemonData extends Pokemon {
     height: number;
@@ -20,12 +22,22 @@ function PokemonProfile() {
     const {id} = useParams()
     const [pokemon] = useFetchProfile(id)
     const nav = useNavigate()
+    const [loading, setLoading] = useState(true)
+
+
+    useEffect(() => {
+        if (pokemon) setLoading(false)
+    }, [pokemon])
+
+
+
 
 
     return (
         <>
             <div className='background'>
                 <img className='logo' src={logo} alt='Logo' onClick={() => nav('/')}/>
+                {loading ? <Loader/> :
                 <div className='profile-body'>
                     <div className='profile-card'>
                         <img className='profile-image' src={pokemon?.image} alt={pokemon?.name}/>
@@ -36,9 +48,18 @@ function PokemonProfile() {
                                     <div className={`type profile-type ${type}`}>{type}</div>
                                 ))}
                             </div>
+                            {pokemon?.stats.map((stat: statistic) => (
+                                <>
+                                <div className="stat-name">{stat.name}</div>
+                                <div className='bar'>
+                                    <div className='bar-fill' style={{width: `${(stat.value / 255) *100}%`}}></div>
+                                    </div>
+                                </>
+                                ))}
                             </div>
                     </div>
                 </div>
+                }
             </div>
         </>
     )

@@ -1,37 +1,43 @@
 .profile-body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 100vh;
+
 }
 
 .profile-card {
     background-color: #3e3e3e8c;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
     width: 95%;
-    height: 95%;
     border-radius: 100px;
+    padding: 20px 0 20px 0;
     overflow: hidden;
 }
 .profile-image {
   display: flex;
-  height: 60%;
-  padding: 50px 50px 0 150px;
+  height: 50%;
+  align-self: center;
 }
 
 .profile-info {
     display: flex;
-    flex-shrink: 5;
-    margin: 75px 75px 0 100px;
-    border-radius: 30px;
+    border-radius: 100px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
     background-color: #8df0e1b7; 
     height: 80%;
-    width: 70%;
+    width: 50%;
+    margin: 30px;
+    padding: 30px;
+    overflow: hidden;
+    flex-grow: 1;
 }
 
 .profile-name {
@@ -44,15 +50,38 @@
 }
 
 .profile-types {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 10px;
-  width: 100%;
-  padding-left: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+    padding-left: 35px;
 }
 
 .profile-type {
-    width: 20%;
+    padding: 10px 20px;
     font-size: larger;
+    font-family: 'Tilt Neon';
+}
+
+.stat-name {
+    width: 60%;
+    font-size: 25px;
+    padding-left: 35px;
+    font-family: 'Tilt Neon';
+    text-transform: capitalize;
+}
+
+.bar{
+    width: 90%;
+    background-color: #ddddddfe;
+    height: 20px;
+    margin: 0 0 20px 35px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    background-color: #ff5959;
+    height: 20px;
 }
