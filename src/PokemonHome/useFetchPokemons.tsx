@@ -31,7 +31,9 @@ const useFetchPokemons = (url: string) => {
         const urls = response.data.results.map((result: { url: string; }) => result.url);
         const next = response.data.next; 
         const pokemons = urls.map(getData);
-        Promise.all(pokemons).then((pokemons) => setPokemons(prevItems => [...prevItems, ...pokemons]));
+        const newPokemons = await Promise.all(pokemons)
+
+        setPokemons((prevItems) => [...prevItems, ...newPokemons]);
         setNextUrl(next);
         } catch (error) {
           console.log(error)
@@ -41,9 +43,7 @@ const useFetchPokemons = (url: string) => {
       }
       
       const handleScroll = () => {
-        if (
-          window.innerHeight + window.scrollY >= document.body.offsetHeight - 100
-        ) {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && !isLoading) {
           getPokemons();
         }
       };
