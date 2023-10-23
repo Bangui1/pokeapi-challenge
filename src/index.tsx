@@ -1,16 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './PokemonHome/index.css'
-import './PokemonProfile/profile.css'
-import './Loader/loader.css'
-import './PokemonHome/types.css'
-import './PokemonProfile/Evolutions/evolution.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./PokemonHome/index.css";
+import "./PokemonProfile/profile.css";
+import "./Loader/loader.css";
+import "./PokemonHome/types.css";
+import "./PokemonProfile/Evolutions/evolution.css";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
-root.render(
-    <App/>
-);
-
+root.render(<App />);

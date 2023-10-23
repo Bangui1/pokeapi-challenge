@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import logo from '../Resources/Pokemon-Logo.png';
+import logo from "../Resources/Pokemon-Logo.png";
 import { Pokemon, PokemonCard } from 'PokemonHome/PokemonCard';
 import Loader from 'Loader/Loader';
 import useFetchPokemons from './useFetchPokemons';
