@@ -4,6 +4,7 @@ import {useNavigate, useParams} from 'react-router-dom'
 import useFetchProfile from "./useFetchProfile";
 import { useState, useEffect } from "react";
 import Loader from "Loader/Loader";
+import PokemonEvolutions from "./PokemonEvolutions";
 
 export interface PokemonData extends Pokemon {
     height: number;
@@ -48,6 +49,15 @@ function PokemonProfile() {
                                     <div className={`type profile-type ${type}`}>{type}</div>
                                 ))}
                             </div>
+                            <div className='profile-types'>
+                                <div className='measurement'> Height: {pokemon?.height} m</div>
+                                <div className='measurement'> Weight: {pokemon?.weight} kg</div>
+                                <div className= 'measurement'>Abilities:
+                                {pokemon?.abilities.map((ability: string) => (
+                                    <div className='ability'>{ability}</div>
+                                ))}
+                                </div>
+                            </div>  
                             {pokemon?.stats.map((stat: statistic) => (
                                 <>
                                 <div className="stat-name">{stat.name}</div>
@@ -58,6 +68,7 @@ function PokemonProfile() {
                                 ))}
                             </div>
                     </div>
+                    <PokemonEvolutions id={pokemon?.id} />
                 </div>
                 }
             </div>

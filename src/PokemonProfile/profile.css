@@ -1,9 +1,8 @@
 .profile-body {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    height: 100vh;
-
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 .profile-card {
@@ -16,7 +15,7 @@
     justify-items: center;
     width: 95%;
     border-radius: 100px;
-    padding: 20px 0 20px 0;
+    padding: 25px 10px;
     overflow: hidden;
 }
 .profile-image {
@@ -35,7 +34,7 @@
     height: 80%;
     width: 50%;
     margin: 30px;
-    padding: 30px;
+    padding: 30px 60px;
     overflow: hidden;
     flex-grow: 1;
 }
@@ -44,18 +43,17 @@
     display: flex;
     font-family: 'Tilt Neon';
     font-size: 50px;
-    padding-left: 35px;
     text-transform: capitalize;
-    margin: 10px;
+    margin: 10px 0;
 }
 
 .profile-types {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding: 10px;
+    flex-direction: row;
     width: 100%;
-    padding-left: 35px;
+    gap: 1em;
 }
 
 .profile-type {
@@ -66,17 +64,17 @@
 
 .stat-name {
     width: 60%;
+    display: flex;
     font-size: 25px;
-    padding-left: 35px;
     font-family: 'Tilt Neon';
     text-transform: capitalize;
 }
 
 .bar{
-    width: 90%;
+    width: 100%;
     background-color: #ddddddfe;
     height: 20px;
-    margin: 0 0 20px 35px;
+    margin-bottom: 15px;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -84,4 +82,20 @@
 .bar-fill {
     background-color: #ff5959;
     height: 20px;
+}
+
+.measurement {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 25px;
+    font-family: 'Tilt Neon';
+    margin: 10px 20px 10px 0;
+}
+
+.ability {
+    display: flex;
+    font-size: 25px;
+    font-family: 'Tilt Neon';
+    text-transform: capitalize;
+    padding: 0 15px;
 }

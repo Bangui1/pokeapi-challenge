@@ -1,0 +1,58 @@
+
+.evolution-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 95%;
+    background-color: #3e3e3e8c;
+    border-radius: 100px;
+    padding: 25px 10px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+
+.evolution {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    padding: 10px;
+}
+
+.evolution-image {
+    display: flex;
+    width: 100%;
+    align-self: center;
+}
+
+.evolution-name {
+    display: flex;
+    font-family: 'Tilt Neon';
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 30px;
+}
+
+.evolution-set{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 30px;
+    width: 25%;
+    flex-grow: 1;
+    border-radius: 20px;
+    background-color: #8df0e1b7;
+}
+
+.evolution-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
