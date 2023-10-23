@@ -4,7 +4,8 @@ import {useNavigate, useParams} from 'react-router-dom'
 import useFetchProfile from "./useFetchProfile";
 import { useState, useEffect } from "react";
 import Loader from "Loader/Loader";
-import PokemonEvolutions from "./PokemonEvolutions";
+import PokemonEvolutions from "./Evolutions/PokemonEvolutions";
+import ProfileData from "./ProfileData";
 
 export interface PokemonData extends Pokemon {
     height: number;
@@ -13,7 +14,7 @@ export interface PokemonData extends Pokemon {
     stats: statistic[];
 }
 
-interface statistic {
+export interface statistic {
     name: string;
     value: number;
 }
@@ -40,34 +41,7 @@ function PokemonProfile() {
                 <img className='logo' src={logo} alt='Logo' onClick={() => nav('/')}/>
                 {loading ? <Loader/> :
                 <div className='profile-body'>
-                    <div className='profile-card'>
-                        <img className='profile-image' src={pokemon?.image} alt={pokemon?.name}/>
-                        <div className='profile-info'>
-                            <div className='profile-name'>#{pokemon?.id} {pokemon?.name}</div>
-                            <div className='profile-types'>
-                                {pokemon?.types.map((type: string) => (
-                                    <div className={`type profile-type ${type}`}>{type}</div>
-                                ))}
-                            </div>
-                            <div className='profile-types'>
-                                <div className='measurement'> Height: {pokemon?.height} m</div>
-                                <div className='measurement'> Weight: {pokemon?.weight} kg</div>
-                                <div className= 'measurement'>Abilities:
-                                {pokemon?.abilities.map((ability: string) => (
-                                    <div className='ability'>{ability}</div>
-                                ))}
-                                </div>
-                            </div>  
-                            {pokemon?.stats.map((stat: statistic) => (
-                                <>
-                                <div className="stat-name">{stat.name}</div>
-                                <div className='bar'>
-                                    <div className='bar-fill' style={{width: `${(stat.value / 255) *100}%`}}></div>
-                                    </div>
-                                </>
-                                ))}
-                            </div>
-                    </div>
+                    <ProfileData pokemon={pokemon} />
                     <PokemonEvolutions id={pokemon?.id} />
                 </div>
                 }
