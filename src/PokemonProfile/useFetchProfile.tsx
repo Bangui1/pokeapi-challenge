@@ -4,6 +4,8 @@ import { PokemonData } from "./PokemonProfile";
 
 const useFetchProfile = (id: string | undefined) => {
   const [pokemon, setPokemon] = useState<PokemonData>();
+  const [loading, setLoading] = useState(true);
+
   // to fun
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
@@ -28,10 +30,11 @@ const useFetchProfile = (id: string | undefined) => {
         ),
       };
       setPokemon(pokemon);
+      setLoading(false);
     });
   }, [id]);
 
-  return [pokemon];
+  return { pokemon, loading };
 };
 
 export default useFetchProfile;

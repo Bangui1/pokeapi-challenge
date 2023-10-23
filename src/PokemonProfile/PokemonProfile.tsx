@@ -2,7 +2,6 @@ import { Pokemon } from "PokemonHome/PokemonCard";
 import logo from "../Resources/Pokemon-Logo.png";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchProfile from "./useFetchProfile";
-import { useState, useEffect } from "react";
 import Loader from "Loader/Loader";
 import PokemonEvolutions from "./Evolutions/PokemonEvolutions";
 import ProfileData from "./ProfileData";
@@ -21,14 +20,8 @@ export interface statistic {
 
 function PokemonProfile() {
   const { id } = useParams();
-  const [pokemon] = useFetchProfile(id);
+  const { pokemon, loading } = useFetchProfile(id);
   const nav = useNavigate();
-  const [loading, setLoading] = useState(true);
-
-  // <loading
-  useEffect(() => {
-    if (pokemon) setLoading(false);
-  }, [pokemon]);
 
   return (
     <>

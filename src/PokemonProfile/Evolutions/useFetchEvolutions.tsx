@@ -59,7 +59,7 @@ const useFetchEvolutions = (pokemonId: number | undefined) => {
     }
   }, []);
 
-  return [evolutions];
+  return evolutions;
 };
 
 export default useFetchEvolutions;

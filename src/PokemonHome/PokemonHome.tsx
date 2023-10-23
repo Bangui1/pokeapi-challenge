@@ -1,29 +1,25 @@
 import logo from "../Resources/Pokemon-Logo.png";
-import { Pokemon, PokemonCard } from 'PokemonHome/PokemonCard';
-import Loader from 'Loader/Loader';
-import useFetchPokemons from './useFetchPokemons';
+import { Pokemon, PokemonCard } from "PokemonHome/PokemonCard";
+import Loader from "Loader/Loader";
+import useFetchPokemons from "./useFetchPokemons";
 
-
-
-const baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
-
-
+const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 
 function PokemonHome() {
-  const {pokemons, loading} = useFetchPokemons(baseUrl);
+  const { pokemons, loading } = useFetchPokemons(baseUrl);
 
-  if (!pokemons) return <div>No se encontraron pokemones</div>;
+  if (!pokemons) return <Loader />;
 
   // Spike header in Router
   return (
     <>
-      <img className='logo' src={logo} alt='Logo'/> 
-      {loading ? <Loader/> : <ol className='grid'>
-            {pokemons.map((pokemon: Pokemon) => (
-              <PokemonCard key={pokemon.id} {...pokemon} />
-            ))}
-          </ol>
-      } 
+      <img className="logo" src={logo} alt="Logo" />
+      <ol className="grid">
+        {pokemons.map((pokemon: Pokemon) => (
+          <PokemonCard key={pokemon.id} {...pokemon} />
+        ))}
+      </ol>
+      {loading && <Loader />}
     </>
   );
 }

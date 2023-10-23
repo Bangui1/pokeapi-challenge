@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useFetchEvolutions from "./useFetchEvolutions";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +8,7 @@ export interface Evolution {
 }
 
 function PokemonEvolutions({ id }: { id: number | undefined }) {
-  const [evolutions] = useFetchEvolutions(id);
+  const evolutions = useFetchEvolutions(id);
 
   const nav = useNavigate();
 
