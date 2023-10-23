@@ -15,8 +15,8 @@ const useFetchProfile = (id: string | undefined) => {
             name: pokemonData.name,
             image: pokemonData.sprites.other['official-artwork'].front_default,
             types: pokemonData.types.map((type: { type: { name: string; }; }) => type.type.name),
-            height: pokemonData.height,
-            weight: pokemonData.weight,
+            height: pokemonData.height/10,
+            weight: pokemonData.weight/10,
             abilities: pokemonData.abilities.map((ability: { ability: { name: string; }; }) => ability.ability.name),
             stats: pokemonData.stats.map((statistic: { stat: { name: string; }; base_stat: number; }) => ({
                 name: statistic.stat.name,
