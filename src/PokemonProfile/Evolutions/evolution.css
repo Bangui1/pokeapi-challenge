@@ -46,6 +46,7 @@
     flex-grow: 1;
     border-radius: 20px;
     background-color: #8df0e1b7;
+    gap: 30px;
 }
 
 .evolution-info{

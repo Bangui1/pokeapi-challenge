@@ -6,7 +6,7 @@ import { PokemonData } from "./PokemonProfile"
 const useFetchProfile = (id: string | undefined) => {
 
     const [pokemon, setPokemon] = useState<PokemonData>()
-
+// to fun
     useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
         const pokemonData = response.data

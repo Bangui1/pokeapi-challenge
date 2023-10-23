@@ -68,7 +68,7 @@ const useFetchPokemons = (url: string) => {
     },[isLoading])
 
 
-    return [pokemons]
+    return {pokemons, loading: isLoading}
 }
 
 export default useFetchPokemons;

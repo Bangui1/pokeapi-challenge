@@ -26,7 +26,7 @@ function PokemonProfile() {
     const nav = useNavigate()
     const [loading, setLoading] = useState(true)
 
-
+// <loading
     useEffect(() => {
         if (pokemon) setLoading(false)
     }, [pokemon])

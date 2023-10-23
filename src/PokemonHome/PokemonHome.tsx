@@ -11,21 +11,14 @@ const baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
 
 function PokemonHome() {
-  const [pokemons] = useFetchPokemons(baseUrl); 
-  const [loading, setLoading] = useState(false)
+  const {pokemons, loading} = useFetchPokemons(baseUrl);
 
-  useEffect(() => {
-    setLoading(true)
-    if (pokemons.length > 0) setLoading(false)
-  }, [pokemons])
+  if (!pokemons) return <div>No se encontraron pokemones</div>;
 
-  if (!pokemons) return null;
-
-
-
+  // Spike header in Router
   return (
     <>
-      <img className='logo' src={logo} alt='Logo'/>
+      <img className='logo' src={logo} alt='Logo'/> 
       {loading ? <Loader/> : <ol className='grid'>
             {pokemons.map((pokemon: Pokemon) => (
               <PokemonCard key={pokemon.id} {...pokemon} />
