@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { Pokemon } from "./PokemonCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const useFetchPokemons = (url: string) => {
 
@@ -44,15 +44,16 @@ const useFetchPokemons = (url: string) => {
         }
       }
       
-      const handleScroll = () => {
+      const handleScroll = useCallback(() => {
         if (
           nextUrl &&
-          window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
+          window.innerHeight + window.scrollY >= document.documentElement.offsetHeight - 1 &&
           !isLoading
         ) {
           getPokemons();
         }
-      };
+      }, [nextUrl, isLoading]);
+      
       
       
       useEffect(() => {
