@@ -12,6 +12,8 @@ const useFetchPokemons = (url: string) => {
     const [isLoading, setIsLoading] = useState(false);
 
 
+
+
     const getData = async (url: string) => {
         const response = await axios.get(url);
         return {
@@ -30,11 +32,11 @@ const useFetchPokemons = (url: string) => {
         const response = await axios.get(nextUrl)
         const urls = response.data.results.map((result: { url: string; }) => result.url);
         const next = response.data.next; 
+        setNextUrl(next);
         const pokemons = urls.map(getData);
         const newPokemons = await Promise.all(pokemons)
 
         setPokemons((prevItems) => [...prevItems, ...newPokemons]);
-        setNextUrl(next);
         } catch (error) {
           console.log(error)
         } finally {
@@ -43,13 +45,20 @@ const useFetchPokemons = (url: string) => {
       }
       
       const handleScroll = () => {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && !isLoading) {
+        if (
+          nextUrl &&
+          window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
+          !isLoading
+        ) {
           getPokemons();
         }
       };
       
+      
       useEffect(() => {
-        getPokemons();
+        if(!pokemons.length) {
+          getPokemons();
+        }
       },[])
 
       useEffect(() => {
