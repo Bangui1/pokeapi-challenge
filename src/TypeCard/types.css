@@ -90,3 +90,22 @@
 .water{
     background-color: var(--color-water);
 }
+.type{
+    width: 80px;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 5px;
+    text-align:center;
+    text-transform: uppercase;
+    font-family: 'Tilt Neon';
+    font-weight: bold;
+    font-size: medium;
+    border: 3px solid #000000;
+}
+
+
+.profile-type {
+    padding: 10px 20px;
+    font-size: larger;
+}
+

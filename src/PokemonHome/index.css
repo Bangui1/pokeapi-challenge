@@ -15,12 +15,6 @@ code {
     monospace;
 }
 
-.logo {
-  display: flex;
-  margin: auto;
-  width: 20%;
-}
-
 .image {
   display: flex;
   margin-left: auto;
@@ -85,18 +79,6 @@ code {
   background-attachment: fixed;
 }
 
-.type {
-  background-color: #f2525259;
-  width: 80px;
-  border-radius: 30px;
-  padding: 5px;
-  margin: 5px;
-  text-align:center;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: medium;
-  border: 3px solid #000000;
-}
 
 .types{
   display: flex;

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import TypeCard from "../TypeCard/TypeCard";
 
 export interface Pokemon {
   id: number;
@@ -17,7 +18,7 @@ export function PokemonCard(pokemon: Pokemon) {
         {`#${pokemon.id} ${pokemon.name}`}
         <div className="types">
           {pokemon.types.map((type: string) => (
-            <div className={`type ${type}`}>{type}</div>
+            <TypeCard type={type} isHome={true} />
           ))}
         </div>
       </div>

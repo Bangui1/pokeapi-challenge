@@ -1,4 +1,5 @@
 import { PokemonData, statistic } from "./PokemonProfile";
+import TypeCard from "../TypeCard/TypeCard";
 
 function ProfileData({ pokemon }: { pokemon: PokemonData | undefined }) {
   return (
@@ -10,7 +11,7 @@ function ProfileData({ pokemon }: { pokemon: PokemonData | undefined }) {
         </div>
         <div className="profile-types">
           {pokemon?.types.map((type: string) => (
-            <div className={`type profile-type ${type}`}>{type}</div>
+            <TypeCard type={type} isHome={false} />
           ))}
         </div>
         <div className="profile-types">
