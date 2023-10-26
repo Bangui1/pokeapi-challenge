@@ -1,4 +1,3 @@
-import logo from "../Resources/Pokemon-Logo.png";
 import { Pokemon, PokemonCard } from "PokemonHome/PokemonCard";
 import Loader from "Loader/Loader";
 import useFetchPokemons from "./useFetchPokemons";
@@ -13,7 +12,6 @@ function PokemonHome() {
   // Spike header in Router
   return (
     <>
-      <img className="logo" src={logo} alt="Logo" />
       <ol className="grid">
         {pokemons.map((pokemon: Pokemon) => (
           <PokemonCard key={pokemon.id} {...pokemon} />
